@@ -1,0 +1,23 @@
+{% load static %}
+
+<!-- Header Section -->
+<footer class="header nav_style footer_style">
+    <div class="container container--narrow">
+      <a href="{% url 'accounts:profiles' %}" class="header__logo">
+        <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" title="DevSearch" />
+      </a>
+      <center>
+        <p class="footer_p">Copyright © 
+            <script type="text/javascript">
+                document.write(new Date().getFullYear());
+            </script>
+
+            by &nbsp;<span class="footer_name">CSIT</span></p>
+      </center>
+      <nav class="header__nav">
+        <p class="footer_p">University of Anbar</p>
+        <p class="footer_p">Computer Science & IT College</p>
+        
+      </nav>
+    </div>
+  </footer>

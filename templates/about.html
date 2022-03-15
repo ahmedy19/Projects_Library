@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us{% endblock title %}
+
+{% block content %}
+
+<!-- Main Section -->
+<main class="home">
+    <section class="hero-section text-center first_header">
+      <div class="container container--narrow">
+        <div class="hero-section__box">
+          <h2 class="home_header">Our Team</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Result: DevList -->
+    <section class="devlist">
+      <div class="container">
+        <div class="grid grid--three">
+
+         <div class="column card home_card">
+            <div class="dev">
+              <a href="" class="card__body" title="Yasser Abed">
+                <div class="dev__profile">
+                  <img class="avatar avatar--md card_image" src="{% static 'images/yasser.jpg' %}" alt="image" title="Yasser Abed" />
+                  <div class="dev__meta card_name">
+                    <h3 class="card_name">Yasser Abed</h3>
+                    <h5 class="card_name">Student</h5>
+                  </div>
+                </div>
+                <p class="dev__info card_dev__info">
+                  Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+                </p>
+
+              </a>
+            </div>
+          </div>
+
+          <div class="column card home_card">
+            <div class="dev">
+              <a href="" class="card__body" title="Yasser Abed">
+                <div class="dev__profile">
+                  <img class="avatar avatar--md card_image" src="{% static 'images/foad.jpg' %}" alt="image" title="Yasser Abed" />
+                  <div class="dev__meta card_name">
+                    <h3 class="card_name">Dr. Foad Salem</h3>
+                    <h5 class="card_name">Supervisor</h5>
+                  </div>
+                </div>
+                <p class="dev__info card_dev__info">
+                  Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+                </p>
+
+              </a>
+            </div>
+          </div>
+
+          <div class="column card home_card">
+            <div class="dev">
+              <a href="" class="card__body" title="Yasser Abed">
+                <div class="dev__profile">
+                  <img class="avatar avatar--md card_image" src="{% static 'images/mustafa.jpg' %}" alt="image" title="Yasser Abed" />
+                  <div class="dev__meta card_name">
+                    <h3 class="card_name">Mustafa Shaker</h3>
+                    <h5 class="card_name">Student</h5>
+                  </div>
+                </div>
+                <p class="dev__info card_dev__info">
+                  Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+                </p>
+
+              </a>
+            </div>
+          </div>
+       
+        </div>
+      </div>
+    </section>
+
+    
+</main>
+
+{% endblock content %}
+

@@ -1,0 +1,328 @@
+@font-face {
+    font-family: SpaceGrotesk-Light;
+    src: url(../fonts/SpaceGrotesk-Light.ttf);
+}
+
+@font-face {
+    font-family: SpaceGrotesk-Regular;
+    src: url(../fonts/SpaceGrotesk-Regular.ttf);
+}
+
+@font-face {
+    font-family: SpaceGrotesk-Medium;
+    src: url(../fonts/SpaceGrotesk-Medium.ttf);
+}
+
+@font-face {
+    font-family: SpaceGrotesk-SemiBold;
+    src: url(../fonts/SpaceGrotesk-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: SpaceGrotesk-Bold;
+    src: url(../fonts/SpaceGrotesk-Bold.ttf);
+}
+
+
+.body{
+    font-family: SpaceGrotesk-Regular !important;
+    background-color:#fffffe !important;
+}
+
+.nav_style{
+    background-color:#0f0e17 !important;
+}
+
+.nav_text{
+    font-family: SpaceGrotesk-Regular !important;
+}
+
+.nav_btn{
+    background-color:#ff8906 !important;
+    color:#fffffe !important;
+    font-family: SpaceGrotesk-Regular !important;
+}
+
+.nav_btn:hover{
+    background-color:#0f0e17 !important;
+    border: 2px solid #ff8906 !important;
+    border-color:#ff8906 !important;
+    color:#ff8906 !important;
+    font-family: SpaceGrotesk-Regular !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+.home_header{
+    font-family: SpaceGrotesk-Bold !important;
+}
+
+.first_header{
+    background-color:#0f0e17 !important;
+}
+
+.home_span{
+    color:#ff8906 !important;
+}
+
+.home_card{
+    background-color:#FFF3E5 !important;
+    color:#0f0e17 !important;
+    border: 2px solid #FFE1BF !important;
+    border-color:#FFE1BF !important;
+    font-family: SpaceGrotesk-Regular !important;
+}
+
+.card_dev__info{
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-Regular !important;
+}
+
+.card_name{
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.card_image{
+    border: 4px solid #ff8906 !important;
+    border-color:#ff8906 !important;
+}
+
+.home_tag{
+    background-color:#fadcb9 !important;
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.profile_card{
+    background-color:#0f0e17 !important;
+    border-color:#22212F !important;
+}
+
+.profile_name{
+    color:#ff8906 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.facebook_icon{
+    color:#ff8906 !important;
+}
+
+.profile_heads{
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.profile_p{
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-Regular !important;
+}
+
+.profile_skill_heads{
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-Medium !important;
+}
+
+.account_heads{
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-Bold !important;
+}
+
+.account_p{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-SemiBold !important;
+}
+
+.account_label{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.account_btn{
+    background-color:#0f0e17 !important;
+    color:#fffffe !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.account_btn:hover{
+    background-color:#0f0e17 !important;
+    color:#fffffe !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.account_login_link{
+    color:#ff8906 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.account_card{
+    background-color:#FFF3E5 !important;
+    color:#0f0e17 !important;
+    border: 2px solid #FFE1BF !important;
+    border-color:#FFE1BF !important;
+    font-family: SpaceGrotesk-Regular !important;
+}
+
+input.input[type='text']:active, input.input[type='email']:active, input.input[type='password']:active, input.input[type='number']:active, select.input:active, textarea.input:active{
+    outline: none;
+    border: 2px solid #ff8906;
+}
+
+input.input[type='text']:focus, input.input[type='email']:focus, input.input[type='password']:focus, input.input[type='number']:focus, select.input:focus, textarea.input:focus{
+    outline: none;
+    border: 2px solid #ff8906;
+}
+
+.delete_p{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-Regular !important;
+}
+
+.delete_b{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-Bold !important;
+}
+
+.footer_style{
+    padding-top:20px !important;
+    margin-top:20px !important;
+}
+
+.footer_p{
+    color:#fffffe !important;
+    font-family:SpaceGrotesk-Regular !important;
+}
+
+.footer_name{
+    color:#fffffe !important;
+    font-family:SpaceGrotesk-SemiBold !important;
+}
+
+
+.dropbtn {
+    color:#fffffe !important;
+    padding:8px;
+    border: none;
+    cursor: pointer;
+    font-family:SpaceGrotesk-Light !important;
+  }
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-family:SpaceGrotesk-Light !important;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#0f0e17 !important;
+    border: 1px solid #ff8906;
+    border-radius:3px;
+    min-width: 120px;
+    box-shadow:#0f0e17 !important;
+    z-index: 1;
+    font-family:SpaceGrotesk-Light !important;
+}
+
+.dropdown-content a {
+    color:#fffffe !important;
+    padding: 6px 6px;
+    text-decoration: none;
+    display: block;
+    font-family:SpaceGrotesk-Light !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    font-family:SpaceGrotesk-Light !important;
+}
+
+.supervisor_name{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-SemiBold !important;
+}
+
+.supervisor_span{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.single_span{
+    color:#ff8906 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.project_tag{
+    background-color:#fadcb9 !important;
+    border:1.5px solid #ff8906;
+    border-color:#ff8906 !important;
+    color:#0f0e17 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.single_heads{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-SemiBold !important;
+}
+
+.single_title{
+    color:#0f0e17 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.single_link{
+    color:#ff8906 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.single_link:hover{
+    color:#ff8906 !important;
+    font-family:SpaceGrotesk-SemiBold !important;
+    border-bottom: 2px solid #ff8906 !important;
+}
+
+.edit_main_tag{
+    background-color:#f3e8ff !important;
+    color:#7e22ce !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.edit_main_tag:hover{
+    border:1.5px solid #7e22ce;
+    border-color:#7e22ce !important;
+    background-color:#fffffe !important;
+    color:#7e22ce !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.delete_main_tag{
+    background-color:#ffe4e6 !important;
+    color:#e11d48 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.delete_main_tag:hover{
+    border:1.5px solid #e11d48;
+    border-color:#e11d48 !important;
+    background-color:#fffffe !important;
+    color:#e11d48 !important;
+    font-family: SpaceGrotesk-SemiBold !important;
+}
+
+.btn_pagination{
+    color:#0f0e17 !important;
+    background-color:#fadcb9 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+.btn_focus_pagination{
+    color:#fffffe !important;
+    background-color:#0f0e17 !important;
+    font-family:SpaceGrotesk-Medium !important;
+}
+
+
+

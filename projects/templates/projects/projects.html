@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Projects{% endblock title %}
+
+{% block content %}
+
+<!-- Main Section -->
+<main class="projects">
+    <section class="hero-section text-center first_header">
+      <div class="container container--narrow">
+        <div class="hero-section__box">
+          <h2><span class="home_span">Projects</span></h2>
+        </div>
+
+        <div class="hero-section__search">
+
+          <form id="searchForm" class="form" action="{% url 'projects:projects' %}" method="get">
+            <div class="form__field">
+              <label for="formInput#search">Search By Projects </label>
+              <input class="input input--text" id="formInput#search" type="text" name="search"
+                placeholder="Search" value="{{ search_query }}" />
+            </div>
+
+            <input class="btn btn--sub btn--lg nav_btn" type="submit" value="Search" />
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Result: DevList -->
+    <section class="projectsList">
+      <div class="container">
+        <div class="grid grid--three">
+          
+            {% for project in projects %}
+                <div class="column">
+                    <div class="card project home_card">
+                    <a href="{% url 'projects:single_project' project.id %}" class="project">
+                        <img class="project__thumbnail" src="{{ project.project_image.url }}" alt="{{ project.title | title }}" />
+                        <div class="card__body">
+                        <h3 class="project__title account_heads">{{ project.title | title }}</h3>
+                        <p><a class="project__author card_name" href="{% url 'accounts:student' project.owner.id %}">By 👉 {{ project.owner.first_name }} {{ project.owner.last_name }}</a></p>
+                        
+                        <p class="project--rating">
+                            <span class="supervisor_name">Supervisor 👉 </span><span class="supervisor_span">{{ project.supervisor }}</span>
+                        </p> 
+                        
+                        
+                            <div class="project__tags">
+                                {% for tag in project.tags.all %}
+                                    <span class="tag tag--pill tag--main project_tag">
+                                    <small class="home_tag">{{ tag.name }}</small>
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+    {% include 'pagination.html' with queryset=projects custom_range=custom_range %}
+    
+  </main>
+  
+{% endblock content %}

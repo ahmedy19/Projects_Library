@@ -1,0 +1,45 @@
+{% load static %}
+
+<!-- Header Section -->
+<header class="header nav_style">
+    <div class="container container--narrow">
+      <a href="{% url 'accounts:profiles' %}" class="header__logo">
+        <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" title="DevSearch" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          <li class="header__menuItem"><a class="nav_text" href="{% url 'accounts:profiles' %}">Home</a></li>
+          <li class="header__menuItem"><a class="nav_text" href="{% url 'projects:projects' %}">Projects</a></li>
+          <li class="header__menuItem"><a class="nav_text" href="{% url 'accounts:about' %}">About us</a></li>
+          
+          {% if request.user.is_authenticated %}
+
+          <div class="dropdown">
+            <li class="header__menuItem"><a class="nav_text"">Dashboard</a></li>
+            <div class="dropdown-content">
+              <a href="{% url 'accounts:account' %}">My Profile</a>
+              <a href="{% url 'projects:create_project' %}">Add Project</a>
+            </div>
+          </div>
+
+          {% endif %}
+
+          {% if request.user.is_authenticated %}
+          
+            <li class="header__menuItem"><a href="{% url 'accounts:logout' %}" class="btn btn--sub nav_btn">Logout</a></li>
+
+          {% else %}
+
+            <li class="header__menuItem"><a href="{% url 'accounts:signin' %}" class="btn btn--sub nav_btn">Login/Sign Up</a></li>
+
+          {% endif %}
+          
+        </ul>
+      </nav>
+    </div>
+  </header>

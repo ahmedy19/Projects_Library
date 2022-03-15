@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Account{% endblock title %}
+
+{% block content %}
+
+    {% if page == 'register' %}
+
+    <br /><br /><br /><br /><br /><br /><br /><br />
+
+        <div class="auth">
+            <div class="card account_card">
+            <div class="auth__header text-center">
+                <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" title="Logo"/>
+                </a>
+                <h3 class="account_heads">Register</h3>
+                <p class="account_p">Create a new student account</p>
+            </div>
+    
+            <form class="form auth__form" action="{% url 'accounts:signup' %}" method="POST">
+                {% csrf_token %}
+
+                {% for field in form %}
+
+                    <div class="form__field">
+                        <label class="account_label" for="formInput#text">{{field.label}}</label>
+                        {{field}}
+
+                    </div>
+
+                {% endfor %}
+
+                <div class="auth__actions">
+                <input class="btn btn--sub btn--lg account_btn" type="submit" value="Register" />
+                </div>
+
+            </form>
+            <div class="auth__alternative">
+                <p class="account_p">Already have an Account?</p>
+                <a class="account_login_link" href="{% url 'accounts:signin' %}">Log In</a>
+            </div>
+            </div>
+        </div>
+    
+    {% else %}
+
+        <div class="auth">
+            <div class="card account_card">
+            <div class="auth__header text-center">
+                <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" title="Logo"/>
+                </a>
+                <h3 class="account_heads">Account Login</h3>
+                <p class="account_p">Hello Student, Welcome Back!</p>
+            </div>
+    
+            <form class="form auth__form" action="{% url 'accounts:signin' %}" method="POST">
+                {% csrf_token %}
+                <!-- Input:Username -->
+                <div class="form__field">
+                <label class="account_label" for="formInput#text">Username </label>
+                <input
+                    class="input input--text"
+                    id="formInput#text"
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    required
+                    autofocus
+                />
+                </div>
+    
+                <!-- Input:Password -->
+                <div class="form__field">
+                <label class="account_label" for="formInput#password">Password </label>
+                <input
+                    class="input input--password"
+                    id="formInput#passowrd"
+                    type="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                />
+                </div>
+
+                <div class="auth__actions">
+                <input class="btn btn--sub btn--lg account_btn" type="submit" value="Log In" />
+                <a class="account_login_link" href="">Forget Password?</a>
+                </div>
+
+            </form>
+
+            <div class="auth__alternative">
+                <p class="account_p">Don’t have an Account?</p>
+                <a class="account_login_link" href="{% url 'accounts:signup' %}">Sign Up</a>
+            </div>
+
+            </div>
+        </div>
+    
+    {% endif %}
+
+{% endblock content %}
