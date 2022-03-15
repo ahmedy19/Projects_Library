@@ -33,7 +33,7 @@ cd Projects_Library
 3. Create virtual environment
 
 ```bash
-virtualenv env
+python -m venv env
 ```
 
 4. Activate virtual environment
