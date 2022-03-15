@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Platform used to manage students projects.
+  Platform used to manage student projects.
 </p>
 
 
