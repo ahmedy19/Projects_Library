@@ -1,0 +1,51 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Create Skills{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">        
+        
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <a type="submit" class="btn btn-primary mr-2 mb-2 float-right" href="{% url 'dashboard:all_skills' %}">All Skills</a>
+                <h4 class="card-title">Create Skills</h4>
+                
+
+                <form class="forms-sample" method="POST" novalidate>
+
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+
+                  
+                  <button type="submit" class="btn btn-primary mr-2">Create</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+
+

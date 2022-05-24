@@ -20,3 +20,10 @@ urlpatterns = [
     path('about/', views.about, name="about"),
 
 ]
+
+
+handler404 = 'accounts.views.error_page'
+
+
+
+

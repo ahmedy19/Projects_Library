@@ -15,3 +15,7 @@ urlpatterns = [
 ]
 
 
+handler404 = 'projects.views.error_page'
+
+
+

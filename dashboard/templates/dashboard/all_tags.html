@@ -1,0 +1,74 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}All Tags{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">        
+        
+        <div class="row ">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <a type="submit" class="btn btn-primary mr-2 mb-2 float-right" href="{% url 'dashboard:create_tag' %}">Create Tag</a>
+                <h4 class="card-title">Tags</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Tag</th>
+                        <th>Created</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      
+                      {% for tag in tags %}
+                      
+                        <tr>
+                          <td>{{ tag.name }}</td>
+                          <td>{{ tag.created_at }}</td>
+                          <td>
+                            <button type="button" class="btn btn-outline-info btn-md">View</button>
+                          </td>
+
+                          <td>
+                            <button type="button" class="btn btn-outline-primary btn-md">Edit</button>
+                          </td>
+
+                          <td>
+                            <button type="button" class="btn btn-outline-danger btn-md">Delete</button>
+                          </td>
+                        </tr>
+
+                      {% endfor %}
+                        
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+

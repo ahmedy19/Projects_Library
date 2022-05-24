@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}404{% endblock title %}
+
+{% block content %}
+    
+    <!--Navbar-->
+        {% include "navbar.html" %}
+    <!--Navbar/-->
+
+    <!--Banner-->
+    <div class="home">
+        <section class="hero-section text-center first_header">
+            <div class="container container--narrow">
+              <div class="hero-section__box">
+                <h2 class="home_header">Welcome to <span class="home_span">Projects Library</span></h2>
+              </div>
+      
+              <div class="hero-section__search">
+      
+      
+                  {% comment %} <div class="form__field">
+                    <label for="formInput#search">Search Students </label>
+                    <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                      placeholder="Search ..." value="{{ search_query }}" />
+                  </div> {% endcomment %}
+
+                  <center>
+                    <a class="btn btn--sub btn--lg nav_btn" alt="Home" title="Home">Home</a>
+                  </center>
+                
+              </div>
+            </div>
+        </section>
+    </div>
+    <!--Banner/-->
+
+
+    <!--Footer-->
+        {% include "includes/footer.html" %}
+    <!--Footer/-->
+
+{% endblock content %}

@@ -1,0 +1,173 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        
+        <div class="row">
+          
+          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="d-flex align-items-center align-self-start">
+                      <h3 class="mb-0">Students</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon icon-box-success">
+                      <a class="text-success" href="{% url 'dashboard:all_students' %}" alt="All Students" title="All Students">
+                        <span class="mdi mdi-arrow-top-right icon-item"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h6 class="text-muted font-weight-normal"><b class="text-success">{{ profiles }}</b></h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="d-flex align-items-center align-self-start">
+                      <h3 class="mb-0">Projects</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon icon-box-success ">
+                      <a class="text-success" href="{% url 'dashboard:all_projects' %}" alt="All Projects" title="All Projects">
+                        <span class="mdi mdi-arrow-top-right icon-item"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h6 class="text-muted font-weight-normal"><b class="text-success">{{ projects }}</b></h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="d-flex align-items-center align-self-start">
+                      <h3 class="mb-0">Skills</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon icon-box-success ">
+                      <a class="text-success" href="{% url 'dashboard:all_skills' %}" alt="All Skills" title="All Skills">
+                        <span class="mdi mdi-arrow-top-right icon-item"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h6 class="text-muted font-weight-normal"><b class="text-success">{{ skills }}</b></h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-9">
+                    <div class="d-flex align-items-center align-self-start">
+                      <h3 class="mb-0">Tags</h3>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="icon icon-box-success ">
+                      <a class="text-success" href="{% url 'dashboard:all_tags' %}" alt="All Tags" title="All Tags">
+                        <span class="mdi mdi-arrow-top-right icon-item"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h6 class="text-muted font-weight-normal"><b class="text-success">{{ tags }}</b></h6>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        
+        
+        <div class="row ">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Students</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Student Name</th>
+                        <th>Username</th>
+                        <th>Department</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      
+                      {% for student in students %}
+                      
+                        <tr>
+                          <td>
+                            <img src="{{ student.profile_image.url }}" title="{{ student.first_name }} {{ student.last_name }}" alt="image" />
+                          </td>
+                          <td>{{ student.first_name }} {{ student.last_name }}</td>
+                          <td>{{ student.username }}</td>
+                          <td>{{ student.department }}</td>
+                          <td>
+                            <button type="button" class="btn btn-outline-info btn-md">View</button>
+                          </td>
+
+                          <td>
+                            <button type="button" class="btn btn-outline-primary btn-md">Edit</button>
+                          </td>
+
+                          <td>
+                            <button type="button" class="btn btn-outline-danger btn-md">Delete</button>
+                          </td>
+                        </tr>
+
+                      {% endfor %}
+                        
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+

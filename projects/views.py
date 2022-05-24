@@ -102,3 +102,7 @@ def delete_project(request, id):
     return render(request, 'delete_object.html', context)
 
 
+# 404 error page
+def error_page(request, exception):
+    return render(request,'404.html', status=404)
+

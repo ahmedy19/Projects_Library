@@ -22,6 +22,13 @@
           <div class="dropdown">
             <li class="header__menuItem"><a class="nav_text"">Dashboard</a></li>
             <div class="dropdown-content">
+
+              
+              {% if request.user.is_authenticated and request.user.is_superuser %}
+                <a href="{% url 'dashboard:dash_home' %}">Admin Dashboard</a>
+              {% endif %}
+                
+
               <a href="{% url 'accounts:account' %}">My Profile</a>
               <a href="{% url 'projects:create_project' %}">Add Project</a>
             </div>

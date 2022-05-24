@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     ### My Apps ###
     'accounts',
     'projects',
+    'dashboard',
+
 ]
 
 MIDDLEWARE = [

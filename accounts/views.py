@@ -139,6 +139,7 @@ def create_skill(request):
             skill = form.save(commit=False)
             skill.owner = profile
             skill.save()
+            
             messages.success(request, 'Skill created Successfully!')
             return redirect('accounts:account')
 
@@ -188,3 +189,8 @@ def delete_skill(request, id):
 
 def about(request):
     return render(request, 'about.html')
+
+
+# 404 error page
+def error_page(request, exception):
+    return render(request,'404.html', status=404)

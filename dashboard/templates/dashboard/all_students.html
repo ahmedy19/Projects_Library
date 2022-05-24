@@ -1,0 +1,79 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}All Students{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">        
+        
+        <div class="row ">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Students</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Student Name</th>
+                        <th>Username</th>
+                        <th>Department</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      
+                      {% for student in students %}
+                      
+                        <tr>
+                          <td>
+                            <img src="{{ student.profile_image.url }}" title="{{ student.first_name }} {{ student.last_name }}" alt="image" />
+                          </td>
+                          <td>{{ student.first_name }} {{ student.last_name }}</td>
+                          <td>{{ student.username }}</td>
+                          <td>{{ student.department }}</td>
+                          <td>
+                            <button type="button" class="btn btn-outline-info btn-md">View</button>
+                          </td>
+
+                          <td>
+                            <button type="button" class="btn btn-outline-primary btn-md">Edit</button>
+                          </td>
+
+                          <td>
+                            <button type="button" class="btn btn-outline-danger btn-md">Delete</button>
+                          </td>
+                        </tr>
+
+                      {% endfor %}
+                        
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+
