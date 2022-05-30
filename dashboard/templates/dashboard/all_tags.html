@@ -24,8 +24,6 @@
                       <tr>
                         <th>Tag</th>
                         <th>Created</th>
-                        <th>View</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
@@ -37,16 +35,9 @@
                         <tr>
                           <td>{{ tag.name }}</td>
                           <td>{{ tag.created_at }}</td>
-                          <td>
-                            <button type="button" class="btn btn-outline-info btn-md">View</button>
-                          </td>
 
                           <td>
-                            <button type="button" class="btn btn-outline-primary btn-md">Edit</button>
-                          </td>
-
-                          <td>
-                            <button type="button" class="btn btn-outline-danger btn-md">Delete</button>
+                            <a type="button" class="btn btn-outline-danger btn-md" href="{% url 'dashboard:dash_delete_tag' tag.id %}?next=/auth/dashboard/all-tags/">Delete</a>
                           </td>
                         </tr>
 

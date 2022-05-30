@@ -1,0 +1,64 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}{{ dash_skill.name }}{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">        
+        
+        <div class="row">
+          
+            <div class="col-md-12 col-xl-12 grid-margin stretch-card">
+                <div class="card">
+
+                  <div class="card-body">
+                    <h4 class="card-title">
+                        <a type="button" class="btn btn-outline-primary btn-md" href="{{ request.GET.next }}"><i class="mdi mdi-arrow-left-bold-circle"></i> Return</a>
+                    </h4>
+
+                    <div class="d-flex py-4">
+                      <div class="preview-list w-100">
+                        <div class="preview-item p-0">
+
+                          <div class="preview-item-content d-flex flex-grow">
+                            <div class="flex-grow">
+                              <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                <h6 class="preview-subject">{{ dash_skill.name|default:"Skill" }}</h6>
+                                <p class="text-muted text-small">{{ dash_skill.created_at|default:"Month 00, 0000, 0:00 p.m. | a.m." }}</p>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-muted">{{ dash_skill.owner.first_name|default:"Admin" }}</p>
+                    <p class="text-muted">{{ dash_skill.description|default:"Description" }}</p>
+                    
+                  </div>
+                </div>
+              </div>
+
+            
+        </div>
+
+
+        </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+

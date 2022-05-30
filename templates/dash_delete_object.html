@@ -1,0 +1,47 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}
+    Delete {{ dash_object }}
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">        
+        
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">
+                    <a type="button" class="btn btn-outline-primary btn-md" href="{{ request.GET.next }}"><i class="mdi mdi-arrow-left-bold-circle"></i> Return</a>
+                </h4>
+
+                <br/>
+
+                <form class="form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <p class="delete_p">Are your sure you want to delete <b class="text-warning delete_b">{{ dash_object|capfirst }}</b>?</p>
+                    <input class="btn btn-outline-danger btn-md" type="submit" value="Delete" />
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+

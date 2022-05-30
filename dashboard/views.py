@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+import os
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
@@ -212,6 +213,140 @@ def create_tag(request):
 
     return render(request, 'dashboard/create_tag.html', context)
 
+
+@login_required(login_url='accounts:signin')
+def dash_student_details(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_profile = Profile.objects.get(pk=id)
+
+        context = {
+            'profile': profile,
+            'dash_profile': dash_profile
+        }
+        return render(request, 'dashboard/dash_student_view.html', context)
+
+
+@login_required(login_url='accounts:signin')
+def dash_skill_details(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_skill = Skill.objects.get(pk=id)
+
+        context = {
+            'profile': profile,
+            'dash_skill': dash_skill
+        }
+        return render(request, 'dashboard/dash_skill_view.html', context)
+
+
+@login_required(login_url='accounts:signin')
+def dash_project_details(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_project = Project.objects.get(pk=id)
+
+        context = {
+            'profile': profile,
+            'dash_project': dash_project
+        }
+        return render(request, 'dashboard/dash_project_view.html', context)
+
+
+@login_required(login_url='accounts:signin')
+def dash_delete_student(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_profile = Profile.objects.get(pk=id)
+
+        if request.method == 'POST':
+
+            if len(dash_profile.profile_image) > 0:
+                os.remove(dash_profile.profile_image.path)
+            
+            dash_profile.delete()
+
+            messages.success(request, 'Student deleted Successfully!')
+            return redirect('dashboard:all_students')
+
+
+        context = {
+            'profile': profile,
+            'dash_object': dash_profile
+        }
+        return render(request, 'dash_delete_object.html', context)
+
+
+@login_required(login_url='accounts:signin')
+def dash_delete_skill(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_skill = Skill.objects.get(pk=id)
+
+        if request.method == 'POST':
+            dash_skill.delete()
+
+            messages.success(request, 'Skill deleted Successfully!')
+            return redirect('dashboard:all_skills')
+
+
+        context = {
+            'profile': profile,
+            'dash_object': dash_skill
+        }
+        return render(request, 'dash_delete_object.html', context)
+
+
+@login_required(login_url='accounts:signin')
+def dash_delete_tag(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_tag = Tag.objects.get(pk=id)
+
+        if request.method == 'POST':
+            dash_tag.delete()
+
+            messages.success(request, 'Tag deleted Successfully!')
+            return redirect('dashboard:all_tags')
+
+
+        context = {
+            'profile': profile,
+            'dash_object': dash_tag
+        }
+        return render(request, 'dash_delete_object.html', context)
+
+
+@login_required(login_url='accounts:signin')
+def dash_delete_project(request, id):
+    if request.user.is_authenticated and request.user.is_superuser:
+        profile = request.user.profile
+
+        dash_project = Project.objects.get(pk=id)
+
+        if request.method == 'POST':
+
+            if len(dash_project.project_image) > 0 and len(dash_project.project_file) > 0:
+                os.remove(dash_project.project_image.path)
+                os.remove(dash_project.project_file.path)
+            
+            dash_project.delete()
+
+            messages.success(request, 'Project deleted Successfully!')
+            return redirect('dashboard:all_projects')
+
+
+        context = {
+            'profile': profile,
+            'dash_object': dash_project
+        }
+        return render(request, 'dash_delete_object.html', context)
 
 
 

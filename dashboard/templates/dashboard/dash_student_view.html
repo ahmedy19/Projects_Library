@@ -1,0 +1,69 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}{{ dash_profile.first_name }} {{ dash_profile.last_name }}{% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    {% include "includes/sub_nav.html" %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">        
+        
+        <div class="row">
+          
+            <div class="col-md-12 col-xl-12 grid-margin stretch-card">
+                <div class="card">
+
+                  <div class="card-body">
+                    <h4 class="card-title">
+                        <a type="button" class="btn btn-outline-primary btn-md" href="{{ request.GET.next }}"><i class="mdi mdi-arrow-left-bold-circle"></i> Return</a>
+                    </h4>
+
+                    <div class="d-flex py-4">
+                      <div class="preview-list w-100">
+                        <div class="preview-item p-0">
+                          <div class="preview-thumbnail">
+                            <img class="rounded-circle" src="{{ dash_profile.profile_image.url }}" alt="{{ dash_profile.first_name }} {{ dash_profile.last_name }}" title="{{ dash_profile.first_name }} {{ dash_profile.last_name }}">
+                          </div>
+                          <div class="preview-item-content d-flex flex-grow">
+                            <div class="flex-grow">
+                              <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                <h6 class="preview-subject">{{ dash_profile.first_name|default:"Name" }} {{ dash_profile.last_name|default:"Name" }}</h6>
+                                <p class="text-muted text-small">{{ dash_profile.created_at|default:"Month 00, 0000, 0:00 p.m. | a.m." }}</p>
+                              </div>
+                              <p class="text-muted"><span class="text-warning">{{ dash_profile.identity_number|default:"Identity Number" }}</span></p>
+                              <p class="text-muted"><span class="text-warning">@</span>{{ dash_profile.username|default:"Username" }}</p>
+                              
+                              <p class="text-muted">{{ dash_profile.department|default:"Department" }} | <span class="text-warning">{{ dash_profile.uni_email|default:"University Email" }}</span></p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-muted">{{ dash_profile.biography|default:"Biography" }}</p>
+                    
+                  </div>
+                </div>
+              </div>
+
+            
+        </div>
+
+
+        </div>
+
+      </div>
+      
+      {% include "includes/dash_footer.html" %}
+
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+{% endblock content %}
+

@@ -27,7 +27,6 @@
                         <th>Title</th>
                         <th>Project file</th>
                         <th>View</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
@@ -46,15 +45,11 @@
                                 <i class="mdi mdi-arrow-down-bold-circle-outline"></i> Download</a>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-outline-info btn-md">View</button>
+                            <a type="button" class="btn btn-outline-info btn-md" href="{% url 'dashboard:dash_view_project' project.id %}?next=/auth/dashboard/all-projects/">View</a>
                           </td>
 
                           <td>
-                            <button type="button" class="btn btn-outline-primary btn-md">Edit</button>
-                          </td>
-
-                          <td>
-                            <button type="button" class="btn btn-outline-danger btn-md">Delete</button>
+                            <a type="button" class="btn btn-outline-danger btn-md" href="{% url 'dashboard:dash_delete_project' project.id %}?next=/auth/dashboard/all-projects/">Delete</a>
                           </td>
                         </tr>
 

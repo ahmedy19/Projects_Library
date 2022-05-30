@@ -17,6 +17,14 @@ urlpatterns = [
     path('auth/dashboard/create-tag/', views.create_tag, name="create_tag"),
     path('auth/dashboard/create-project/', views.create_project, name="create_project"),
 
+    path('auth/dashboard/student-<str:id>/details', views.dash_student_details, name="dash_view_student"),
+    path('auth/dashboard/skill-<str:id>/details', views.dash_skill_details, name="dash_view_skill"),path('auth/dashboard/project-<str:id>/details', views.dash_project_details, name="dash_view_project"),
+
+    path('auth/dashboard/student-<str:id>/delete', views.dash_delete_student, name="dash_delete_student"),
+    path('auth/dashboard/skill-<str:id>/delete', views.dash_delete_skill, name="dash_delete_skill"),
+    path('auth/dashboard/tag-<str:id>/delete', views.dash_delete_tag, name="dash_delete_tag"),
+    path('auth/dashboard/project-<str:id>/delete', views.dash_delete_project, name="dash_delete_project"),
+
 ]
 
 

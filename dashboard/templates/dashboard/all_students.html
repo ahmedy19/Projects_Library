@@ -26,7 +26,6 @@
                         <th>Username</th>
                         <th>Department</th>
                         <th>View</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
@@ -43,15 +42,11 @@
                           <td>{{ student.username }}</td>
                           <td>{{ student.department }}</td>
                           <td>
-                            <button type="button" class="btn btn-outline-info btn-md">View</button>
+                            <a type="button" class="btn btn-outline-info btn-md" href="{% url 'dashboard:dash_view_student' student.id %}?next=/auth/dashboard/all-students/">View</a>
                           </td>
 
                           <td>
-                            <button type="button" class="btn btn-outline-primary btn-md">Edit</button>
-                          </td>
-
-                          <td>
-                            <button type="button" class="btn btn-outline-danger btn-md">Delete</button>
+                            <a type="button" class="btn btn-outline-danger btn-md" href="{% url 'dashboard:dash_delete_student' student.id %}?next=/auth/dashboard/all-students/">Delete</a>
                           </td>
                         </tr>
 
