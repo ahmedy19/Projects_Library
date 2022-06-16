@@ -265,13 +265,17 @@ def dash_delete_student(request, id):
 
         if request.method == 'POST':
 
-            if len(dash_profile.profile_image) > 0:
-                os.remove(dash_profile.profile_image.path)
-            
-            dash_profile.delete()
+            if dash_profile.username == request.user.username:
+                messages.warning(request, 'You can\'t delete yourself!')
+                return redirect('dashboard:all_students')
+            else:
+                if len(dash_profile.profile_image) > 0:
+                    os.remove(dash_profile.profile_image.path)
+                
+                dash_profile.delete()
 
-            messages.success(request, 'Student deleted Successfully!')
-            return redirect('dashboard:all_students')
+                messages.success(request, 'Student deleted Successfully!')
+                return redirect('dashboard:all_students')
 
 
         context = {

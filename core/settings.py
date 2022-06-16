@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config
 
@@ -17,6 +18,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',  # Package used for Admin UI customization
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -105,6 +107,24 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Method 1
+# Reset password configurations
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+# Method 2
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'    Email viewed in Console 
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "confirmation_mails")
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -131,6 +151,28 @@ LOGOUT_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# Jazzmin settings
+JAZZMIN_SETTINGS = {
+    "site_title": "Projects Library",
+    "site_header": "Projects Library",
+    "site_brand": "Projects Library",
+    "welcome_sign": "Projects Library",
+    "site_logo": "../static/images/favicon.ico",
+    "copyright": "Projects Library",
+    "site_icon": "../static/images/favicon.ico",
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-users",
+        "auth.Group": "fas fa-user-lock",
+        "projects.Project": "fab fa-buffer",
+        "projects.Tag": "fas fa-tags",
+        "accounts.Profile": "fas fa-address-card",
+        "accounts.Skill": "fas fa-receipt",
+    },
+
+    "custom_css": "../static/admin/css/base.css",
+}
 
 
 
